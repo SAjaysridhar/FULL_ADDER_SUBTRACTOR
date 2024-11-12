@@ -38,18 +38,83 @@ Borrow out = A'Bin + A'B + BBin
 
 **Truthtable**
 
+Full adder
+
+![Screenshot (22)](https://github.com/user-attachments/assets/dcd08949-2638-45a9-809f-57045959e3a8)
+
+
+Full subtracter
+
+
+![WhatsApp Image 2024-11-12 at 11 23 48_68934fab](https://github.com/user-attachments/assets/b1f3f487-235d-4972-bf07-5d7510629b6e)
+
+
 **Procedure**
 
-Write the detailed procedure here
+1.	Type the program in Quartus software.
+
+2.	Compile and run the program.
+
+3.	Generate the RTL schematic and save the logic diagram.
+
+4.	Create nodes for inputs and outputs to generate the timing diagram.
+
+5.	For different input combinations generate the timing diagram.
 
 **Program:**
-
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+```
+//full adder
+module ex4(sum, cout, a, b, cin);
+output sum;
+output cout;
+input a;
+input b; 
+input cin;
+//internal nets 
+wire sl, cl,c2;
+//Instantiate logic gate primitives 
+xor (sl,a,b); 
+and(cl,a,b);
+xor(sum, sl, cin);
+and(c2, sl, cin);
+or (cout, c2,cl); 
+endmodule
+```
+```
+module ex4a (df, bo, a, b, bin);
+ output df;
+ output bo;
+ input a;
+ input b;
+ input bin;
+ wire w1,w2, w3;
+ assign w1=a^b;
+ assign w2=(~a&b); 
+ assign w3=(~w1&bin);
+ assign df=w1^bin;
+ assign bo=w2|w3;
+ endmodule
+```
+/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by:AJAY S  RegisterNumber:
+24900457
 
 **RTL Schematic**
 
+Full adder
+![WhatsApp Image 2024-11-12 at 11 04 48_ace2c709](https://github.com/user-attachments/assets/00e5f958-7a97-49af-a7c8-61e261b41c85)
+
+Full subtracter
+![WhatsApp Image 2024-11-12 at 11 06 51_3cedeb52](https://github.com/user-attachments/assets/fa38b733-784f-44b6-8db3-981b2501f9df)
+
 **Output Timing Waveform**
+
+
+Full adder 
+![Screenshot (19)](https://github.com/user-attachments/assets/c4e0af58-13f6-474f-b3fd-7798aa260b8e)
+
+Full subtracter
+![Screenshot (21)](https://github.com/user-attachments/assets/504fdfcc-f1c8-4ab8-928c-4da02c0ce173)
+
 
 **Result:**
 
